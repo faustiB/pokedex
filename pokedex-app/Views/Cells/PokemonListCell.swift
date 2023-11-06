@@ -14,20 +14,9 @@ struct PokemonListCell: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            AsyncImage(url: URL(string: pokemon.sprites.other.officialArtwork.frontDefault )) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                case .failure(let error):
-                    Text("Error: \(error.localizedDescription)")
-                @unknown default:
-                    Text("Something went wrong... Try again later.")
-                }
-            }
+
+            PokemonAsyncImage(urlString: pokemon.sprites.other.officialArtwork.frontDefault)
+            
             Text(pokemon.name)
                 .font(.system(.title2, design: .monospaced, weight: .semibold))
 
