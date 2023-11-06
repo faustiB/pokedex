@@ -15,6 +15,7 @@ struct Pokemon: Decodable, Identifiable {
     var weight: Int
     var order: Int
     var sprites: PokemonSprites
+    var types: [PokemonType]
 
 
 }

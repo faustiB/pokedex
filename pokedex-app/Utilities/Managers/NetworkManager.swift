@@ -36,22 +36,6 @@ final class NetworkManager {
         return pokemonResultsImages
     }
 
-//    func getNextPokemons() async -> [Pokemon]? {
-//        var pokemonResultsImages:[Pokemon]? = []
-//
-//        do {
-//            guard let url = URL(string: nextUrl ?? "") else { throw PokemonError.invalidURL }
-//            let pokemonResults = try await fetchResults(url: url, responseType: PokemonList.self)
-//            nextUrl = pokemonResults.next
-//            try await fetchPokemons(url, &pokemonResultsImages)
-//
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//        return pokemonResultsImages
-//    }
-
-
     //MARK: Private Functions
 
     fileprivate func fetchPokemons(_ url: URL, _ pokemonResultsImages: inout [Pokemon]?) async throws {
