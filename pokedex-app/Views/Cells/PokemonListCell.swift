@@ -45,9 +45,10 @@ struct PokemonListCell: View {
 
         }
         .frame(width: 160, height: 240)
-        .background(Color.brandPrimary)
-        .border(.gray)
-        .shadow(color: .gray, radius: 10)
+        .background(Color(.systemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .shadow(color: viewModel.getColorForType(typeString: pokemon.types.first?.type.name ?? "normal") ?? .gray,
+                radius: 8)
         .padding(.top, 16)
     }
 }

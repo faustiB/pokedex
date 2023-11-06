@@ -39,4 +39,12 @@ final class PokemonListViewModel: ObservableObject {
         }
     }
 
+    func getColorForType(typeString: String) -> Color? {
+        if let type = PokemonTypeColor(rawValue: typeString) {
+            return type.color
+        }
+        return nil
+    }
+
+
 }
