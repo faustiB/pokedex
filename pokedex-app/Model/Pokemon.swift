@@ -16,6 +16,7 @@ struct Pokemon: Decodable, Identifiable {
     var order: Int
     var sprites: PokemonSprites
     var types: [PokemonType]
+    var moves: [PokemonMove]
 
 
 }

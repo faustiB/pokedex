@@ -10,7 +10,8 @@ import Foundation
 struct MockData {
     static let urlFront = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
     static let urlFrontShiny = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1.png"
-    static let pokemonTypes = [PokemonType(slot: 1, type: PokemonTypeDetail(name: "grass", url: "https://pokeapi.co/api/v2/type/12/"))]
+    static let pokemonTypes = PokemonType(slot: 1, type: PokemonTypeDetail(name: "grass", url: "https://pokeapi.co/api/v2/type/12/"))
+    static let pokemonMove = PokemonMove(move: PokemonMoveDetail( name: "body-slam", url: "https://pokeapi.co/api/v2/move/34/"))
     static let pokemon = Pokemon(id: 1,
                                  name: "Bulbasur",
                                  height: 10,
@@ -18,5 +19,6 @@ struct MockData {
                                  order: 1,
                                  sprites: PokemonSprites(other: PokemonOtherSprites(officialArtwork: PokemonOfficialArtwork(frontDefault: urlFront,
                                                                                                                             frontShiny: urlFrontShiny))),
-                                 types: pokemonTypes)
+                                 types: [pokemonTypes, pokemonTypes],
+                                 moves: [pokemonMove, pokemonMove, pokemonMove])
 }
