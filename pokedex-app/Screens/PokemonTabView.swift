@@ -21,10 +21,7 @@ struct PokemonTabView: View {
                     Image(systemName: "pawprint.fill")
                     Text("Pokemons")
                 }
-        }
-        .tint(.indigo)
-
-
+        }.tint(.green)
     }
 
 

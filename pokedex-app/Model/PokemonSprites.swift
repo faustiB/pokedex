@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct PokemonSprites: Decodable {
+struct PokemonSprites: Decodable, Hashable {
     var other: PokemonOtherSprites
 }
 
-struct PokemonOtherSprites: Decodable {
+struct PokemonOtherSprites: Decodable, Hashable {
     var officialArtwork: PokemonOfficialArtwork
     enum CodingKeys: String, CodingKey {
         case officialArtwork = "official-artwork"
     }
 }
 
-struct PokemonOfficialArtwork: Decodable {
+struct PokemonOfficialArtwork: Decodable, Hashable {
     var frontDefault: String
     var frontShiny: String
 

@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct PokemonMove: Decodable{
+struct PokemonMove: Decodable, Hashable {
     var move: PokemonMoveDetail
 }
 
-struct PokemonMoveDetail: Decodable {
+struct PokemonMoveDetail: Decodable, Hashable {
     var name: String
     var url: String
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pokemon: Decodable, Identifiable {
+struct Pokemon: Decodable, Identifiable, Hashable {
 
     var id: Int
     var name: String
@@ -17,6 +17,5 @@ struct Pokemon: Decodable, Identifiable {
     var sprites: PokemonSprites
     var types: [PokemonType]
     var moves: [PokemonMove]
-
 
 }

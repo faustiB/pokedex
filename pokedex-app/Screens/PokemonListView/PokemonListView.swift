@@ -17,19 +17,22 @@ struct PokemonListView: View {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: viewModel.gridColumns) {
                         ForEach(viewModel.pokemonList ?? [], id: \.order) { pokemon in
-                            PokemonListCell(pokemon: pokemon, viewModel: viewModel)
-                                .onAppear{
-                                    if pokemon.id == viewModel.pokemonList?.last?.id {
-                                        viewModel.loadPokemons()
+                            NavigationLink(value: pokemon) {
+                                PokemonListCell(pokemon: pokemon, viewModel: viewModel)
+                                    .onAppear{
+                                        if pokemon.id == viewModel.pokemonList?.last?.id {
+                                            viewModel.loadPokemons()
+                                        }
                                     }
-                                }
-                                .onTapGesture {
-                                    //TODO: Detail view, decide what kind of detail view I want.
-                                    print(pokemon.name)
-                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
-                }.navigationTitle("🐿️ Pokemons")
+                }
+                .navigationTitle("🐿️ Pokemons")
+                .navigationDestination(for: Pokemon.self) { pokemon in
+                    PokemonDetailView(pokemon: pokemon)
+                }
             }
 
         }
@@ -38,7 +41,6 @@ struct PokemonListView: View {
         }
     }
 }
-
 
 #Preview {
     PokemonListView()
