@@ -9,11 +9,17 @@ import SwiftUI
 
 struct PokemonDetailView: View {
     let pokemon: Pokemon
+    let backgroundColor: Color
     var body: some View {
-        Text(pokemon.name)
+        ZStack {
+            BackgroundPokemonDetailView(backgroundColor: backgroundColor)
+            Text(pokemon.name)
+                .font(.largeTitle)
+
+        }
     }
 }
 
 #Preview {
-    PokemonDetailView(pokemon: MockData.pokemon)
+    PokemonDetailView(pokemon: MockData.pokemon, backgroundColor: .green)
 }

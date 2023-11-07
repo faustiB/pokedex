@@ -31,7 +31,8 @@ struct PokemonListView: View {
                 }
                 .navigationTitle("🐿️ Pokemons")
                 .navigationDestination(for: Pokemon.self) { pokemon in
-                    PokemonDetailView(pokemon: pokemon)
+                    PokemonDetailView(pokemon: pokemon,
+                                      backgroundColor: viewModel.getColorForType(typeString: pokemon.types.first?.type.name ?? "") ?? .gray)
                 }
             }
 

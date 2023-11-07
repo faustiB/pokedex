@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PokemonListCell: View {
-    @Environment(\.colorScheme) var colorScheme
+    
     let pokemon: Pokemon
     let viewModel: PokemonListViewModel
 
