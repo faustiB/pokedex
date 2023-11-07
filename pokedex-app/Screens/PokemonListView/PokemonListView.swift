@@ -24,7 +24,7 @@ struct PokemonListView: View {
                                     }
                                 }
                                 .onTapGesture {
-                                    //TODO: Detail view, decide what kind of detail view I want. 
+                                    //TODO: Detail view, decide what kind of detail view I want.
                                     print(pokemon.name)
                                 }
                         }
