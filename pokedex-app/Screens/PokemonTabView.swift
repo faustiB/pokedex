@@ -13,15 +13,12 @@ import SwiftData
 
 struct PokemonTabView: View {
 
-
     var body: some View {
-        TabView {
-            PokemonListView()
-                .tabItem {
-                    Image(systemName: "pawprint.fill")
-                    Text("Pokemons")
-                }
-        }.tint(.green)
+        PokemonListView()
+            .tabItem {
+                Image(systemName: "pawprint.fill")
+                Text("Pokemons")
+            }
     }
 
 

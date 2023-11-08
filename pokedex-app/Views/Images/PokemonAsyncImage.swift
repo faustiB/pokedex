@@ -13,13 +13,14 @@ struct PokemonAsyncImage: View {
         AsyncImage(url: URL(string: urlString )) { phase in
             switch phase {
             case .empty:
-                ProgressView()
+                ProgressView().progressViewStyle(.circular)
             case .success(let image):
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-            case .failure(let error):
-                Text("Error: \(error.localizedDescription)")
+            case .failure(let _):
+                Text("Failed to load image, sorry...")
+                    .frame(width: 180, height: 160)
             @unknown default:
                 Text("Something went wrong... Try again later.")
             }
