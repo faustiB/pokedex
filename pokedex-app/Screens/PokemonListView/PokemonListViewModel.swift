@@ -11,6 +11,8 @@ import SwiftUI
 final class PokemonListViewModel: ObservableObject {
 
     @Published var pokemonList: [Pokemon]? = []
+    @Published var isLoading = false
+
     private var pokemonResult: PokemonList?
     private let interactor: PokemonListInteractor = PokemonListInteractor()
     let gridColumns = [
@@ -31,20 +33,24 @@ final class PokemonListViewModel: ObservableObject {
     }
 
     func heightInCentietres(heightInDecimetres: Int) -> Int { heightInDecimetres * 10}
-
-    @MainActor
-    fileprivate func getAllPokemons() async {
-        if let nextPokemons = await interactor.getAllPokemons() {
-            pokemonList?.append(contentsOf: nextPokemons)
-        }
-    }
-
+    
     func getColorForType(typeString: String) -> Color? {
         if let type = PokemonTypeColor(rawValue: typeString) {
             return type.color
         }
         return nil
     }
+    
+    func shufflePokemons() {
+        pokemonList?.shuffle()
+    }
 
-
+    @MainActor
+    fileprivate func getAllPokemons() async {
+        isLoading = true
+        if let nextPokemons = await interactor.getAllPokemons() {
+            pokemonList?.append(contentsOf: nextPokemons)
+            isLoading = false
+        }
+    }
 }

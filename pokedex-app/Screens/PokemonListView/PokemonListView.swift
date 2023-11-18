@@ -13,6 +13,7 @@ struct PokemonListView: View {
 
     var body: some View {
         ZStack {
+
             NavigationStack {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: viewModel.gridColumns) {
@@ -34,6 +35,14 @@ struct PokemonListView: View {
                     PokemonDetailView(pokemon: pokemon,
                                       backgroundColor: viewModel.getColorForType(typeString: pokemon.types.first?.type.name ?? "") ?? .gray)
                 }
+                .refreshable {
+                    viewModel.shufflePokemons()
+                }
+            }
+
+            if viewModel.isLoading {
+                ProgressView()
+                    .offset(y: 350)
             }
 
         }

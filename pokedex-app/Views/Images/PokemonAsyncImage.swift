@@ -18,7 +18,7 @@ struct PokemonAsyncImage: View {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-            case .failure(let _):
+            case .failure( _):
                 Text("Failed to load image, sorry...")
                     .frame(width: 180, height: 160)
             @unknown default:

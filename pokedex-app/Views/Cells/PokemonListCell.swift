@@ -16,7 +16,7 @@ struct PokemonListCell: View {
         VStack(alignment: .center, spacing: 8) {
 
             PokemonAsyncImage(urlString: pokemon.sprites.other.officialArtwork.frontDefault)
-            
+
             Text(pokemon.name)
                 .font(.system(.title2, design: .monospaced, weight: .semibold))
 
