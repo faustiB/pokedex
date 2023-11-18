@@ -11,7 +11,7 @@ struct BackgroundPokemonDetailView: View {
     var backgroundColor: Color
     
     var body: some View {
-        LinearGradient(colors: [backgroundColor,  Color(UIColor.systemBackground)],
+        LinearGradient(colors: [backgroundColor,  Color(UIColor.systemBackground), Color(UIColor.systemBackground)],
                        startPoint: .topLeading, endPoint: .bottomTrailing)
         .ignoresSafeArea()
         .opacity(0.5)
